@@ -82,6 +82,22 @@ const Footer = styled.footer`
   font-size: 0.8rem;
 `;
 
+const FeedbackButton = styled(DownloadButton)`
+  background: #28a745;
+  color: white;
+  &:hover {
+    background: #218838;
+  }
+`;
+
+const FeedbackLink = styled.a`
+  color: inherit;
+  text-decoration: underline;
+  &:hover {
+    color: #0056b3;
+  }
+`;
+
 const HomePage = () => {
   return (
     <div>
@@ -99,7 +115,15 @@ const HomePage = () => {
       <FeaturesSection>
         <Container>
           <BetaNotice>
-            🚀 产品目前处于内测阶段，欢迎试用并反馈问题
+            🚀 产品目前处于内测阶段，欢迎
+            <FeedbackLink 
+              href="https://github.com/hawkeye-xb/P-Pass-File/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              反馈
+            </FeedbackLink>
+            问题
           </BetaNotice>
           <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>产品特性</h2>
           <FeatureGrid>
@@ -145,6 +169,15 @@ const HomePage = () => {
             >
               MacOS 版本 (ARM64)
             </DownloadButton>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '30px' }}>
+            <FeedbackButton
+              href="https://github.com/hawkeye-xb/P-Pass-File/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              问题反馈
+            </FeedbackButton>
           </div>
         </Container>
       </section>
