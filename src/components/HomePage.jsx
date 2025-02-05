@@ -55,12 +55,42 @@ const Feature = styled.div`
   padding: 30px;
 `;
 
+const BetaTag = styled.span`
+  background: #ff4757;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  display: inline-block;
+`;
+
+const BetaNotice = styled.div`
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+`;
+
+const Footer = styled.footer`
+  text-align: center;
+  padding: 20px 0;
+  color: #666;
+  font-size: 0.8rem;
+`;
+
 const HomePage = () => {
   return (
     <div>
       <Hero>
         <Container>
-          <Title>P-Pass File</Title>
+          <Title>
+            P-Pass File
+            <BetaTag>内测中</BetaTag>
+          </Title>
           <Subtitle>基于 WebRTC 的个人远程文件管理工具</Subtitle>
           <DownloadButton href="#download">立即下载</DownloadButton>
         </Container>
@@ -68,6 +98,9 @@ const HomePage = () => {
 
       <FeaturesSection>
         <Container>
+          <BetaNotice>
+            🚀 产品目前处于内测阶段，欢迎试用并反馈问题
+          </BetaNotice>
           <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>产品特性</h2>
           <FeatureGrid>
             <Feature>
@@ -115,6 +148,10 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
+
+      <Footer>
+        本页面由 trae 生成，deno deploy 托管
+      </Footer>
     </div>
   );
 };
