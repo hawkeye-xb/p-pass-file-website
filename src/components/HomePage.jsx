@@ -156,23 +156,30 @@ const HomePage = () => {
           <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>下载</h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
             <DownloadButton 
-              href="https://github.com/hawkeye-xb/P-Pass-File/releases/download/v0.1.0-alpha/P-Pass.File.Setup.1.0.0.exe"
+              href="https://github.com/hawkeye-xb/p-pass-file-electron-client/releases/download/v0.1.18-alpha/P-Pass.File-0.1.18-alpha-win-x64.exe"
               target="_blank"
               rel="noopener noreferrer"
             >
               Windows 版本
             </DownloadButton>
             <DownloadButton 
-              href="https://github.com/hawkeye-xb/P-Pass-File/releases/download/v0.1.0-alpha/P-Pass.File-1.0.0-arm64.dmg"
+              href="https://github.com/hawkeye-xb/p-pass-file-electron-client/releases/download/v0.1.18-alpha/P-Pass.File-0.1.18-alpha-mac-arm64.dmg"
               target="_blank"
               rel="noopener noreferrer"
             >
               MacOS 版本 (ARM64)
             </DownloadButton>
+            <DownloadButton 
+              href="https://github.com/hawkeye-xb/p-pass-file-electron-client/releases/download/v0.1.18-alpha/P-Pass.File-0.1.18-alpha-mac-x64.dmg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MacOS 版本 (x64)
+            </DownloadButton>
           </div>
           <div style={{ textAlign: 'center', marginTop: '30px' }}>
             <FeedbackButton
-              href="https://github.com/hawkeye-xb/P-Pass-File/issues"
+              href="https://github.com/hawkeye-xb/p-pass-file-electron-client/issues"
               target="_blank"
               rel="noopener noreferrer"
             >
