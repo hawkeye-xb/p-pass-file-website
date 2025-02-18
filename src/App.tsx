@@ -271,38 +271,63 @@ function App() {
           </div>
         </div>
 
-        {/* Features and Installation Guide */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-4">使用场景</h2>
-            <ul className="space-y-3">
-              <li className="flex items-center text-gray-700">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                跨设备文件快速传输
-              </li>
-              <li className="flex items-center text-gray-700">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                局域网内文件共享
-              </li>
-              <li className="flex items-center text-gray-700">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                个人数据安全传输
-              </li>
-              {/* <li className="flex items-center text-gray-700">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                团队文件协作分享
-              </li> */}
-            </ul>
-          </div>
+        {/* Usage Guide */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+          <h2 className="text-2xl font-bold mb-6">使用指南</h2>
+          <div className="flex flex-col space-y-8">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Storage Device */}
+              <div className="border border-blue-100 rounded-lg p-6 bg-blue-50">
+                <h3 className="text-xl font-semibold text-blue-700 mb-4">存储端设置</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm">1</span>
+                    <p className="text-gray-700">启动应用后选择"存储端"模式</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm">2</span>
+                    <div>
+                      <p className="text-gray-700">记录自动生成的设备ID</p>
+                      <p className="text-sm text-gray-500 mt-1">稍后需要提供给使用端</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm">3</span>
+                    <div>
+                      <p className="text-gray-700">添加要共享的目录</p>
+                      <p className="text-sm text-gray-500 mt-1">可以添加多个目录进行共享</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-4">安装指南</h2>
-            <ol className="list-decimal list-inside space-y-3 text-gray-700">
-              <li>下载适用于您操作系统的版本</li>
-              <li>运行安装包</li>
-              {/* <li>按照安装向导的步骤操作</li> */}
-              <li>启动应用程序开始使用</li>
-            </ol>
+              {/* Client Device */}
+              <div className="border border-green-100 rounded-lg p-6 bg-green-50">
+                <h3 className="text-xl font-semibold text-green-700 mb-4">使用端连接</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white flex items-center justify-center text-sm">1</span>
+                    <p className="text-gray-700">在另一台设备上启动应用并选择"使用端"模式</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white flex items-center justify-center text-sm">2</span>
+                    <div>
+                      <p className="text-gray-700">输入存储端的设备ID</p>
+                      <p className="text-sm text-gray-500 mt-1">确保两台设备都在线</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white flex items-center justify-center text-sm">3</span>
+                    <p className="text-gray-700">连接成功后即可访问共享文件</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center p-4 bg-gray-50 rounded-lg">
+              <p className="text-gray-600">两台设备保持在线即可随时进行文件管理和传输</p>
+              <p className="text-sm text-gray-500 mt-2">支持局域网和互联网环境下的连接</p>
+            </div>
           </div>
         </div>
       </div>
