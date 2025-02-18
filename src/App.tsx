@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiDownload, FiCpu, FiHardDrive, FiMonitor, FiChevronDown } from 'react-icons/fi';
+import { FiDownload, FiCpu, FiHardDrive, FiMonitor, FiChevronDown, FiLoader } from 'react-icons/fi';
 
 interface Release {
   platform: string;
@@ -13,12 +13,18 @@ function App() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // 添加 loading 状态
+  const [isLoading, setIsLoading] = useState(false);
+  
   useEffect(() => {
+    setIsLoading(true);
     fetch('https://grps.hawkeye-xb.xyz/github-proxy/release/77b83f43-9530-456b-bf92-e7fcdf126f78')
       .then(res => res.json())
       .then(data => {
         if (data?.latestRelease?.assets) {
-          const mappedReleases = data.latestRelease.assets.map((asset: any) => {
+          const mappedReleases = data.latestRelease.assets
+          .filter((asset: any) => !asset.name.toLowerCase().includes('blockmap'))
+          .map((asset: any) => {
             let platform = 'unknown';
             let arch = 'unknown';
             
@@ -51,6 +57,9 @@ function App() {
         console.error('Error fetching releases:', error);
         setError('Failed to fetch release data');
         setReleases([]);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -91,6 +100,18 @@ function App() {
   const renderDownloadButtonRender = (platform: string) => {
     const platformReleases = getPlatformReleases(platform);
     
+    if (isLoading) {
+      return (
+        <button
+          disabled
+          className="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold opacity-75 cursor-not-allowed"
+        >
+          <FiLoader className="mr-2 animate-spin" />
+          加载中...
+        </button>
+      );
+    }
+
     if (platformReleases.length === 0) {
       return null;
     }
