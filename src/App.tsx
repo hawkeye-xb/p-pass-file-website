@@ -92,6 +92,19 @@ function App() {
     return parseFloat(size).toFixed(1) + ' MB';
   };
 
+  const getProxiedDownloadUrl = (originalUrl: string) => {
+    // For GitHub release assets, we should use a different jsDelivr URL format
+    // Instead of cdn.jsdelivr.net/gh/, we should use cdn.jsdelivr.net/gh/username/repo@version/
+    const urlParts = originalUrl.split('/');
+    const fileName = urlParts[urlParts.length - 1];
+    const repoIndex = urlParts.indexOf('github.com');
+    
+    if (repoIndex === -1) return originalUrl;
+    
+    // Use ghproxy.com as a more reliable alternative for GitHub release assets
+    return `https://ghfast.top/${originalUrl}`;
+  };
+
   const renderDownloadButton = (platform: string) => {
     return (<div key={platform}>
       { renderDownloadButtonRender(platform) }
@@ -119,7 +132,7 @@ function App() {
     if (platformReleases.length === 1) {
       return (
         <a
-          href={platformReleases[0].url}
+          href={getProxiedDownloadUrl(platformReleases[0].url)}
           className="inline-flex items-center bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
         >
           <FiDownload className="mr-2" />
@@ -144,7 +157,7 @@ function App() {
             {platformReleases.map((release, index) => (
               <a
                 key={index}
-                href={release.url}
+                href={getProxiedDownloadUrl(release.url)}
                 className="block px-6 py-3 hover:bg-gray-50 text-blue-600"
               >
                 {release.arch}
